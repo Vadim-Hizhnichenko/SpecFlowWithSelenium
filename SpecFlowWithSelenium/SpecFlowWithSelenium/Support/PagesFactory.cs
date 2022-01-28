@@ -13,11 +13,11 @@ namespace SpecFlowWithSelenium.Support
         {
             Driver = new Driver().Current;
             TextBoxPage = new TextBoxPage(Driver);
-
+            CheckBox = new CheckBox(Driver);
         }
 
         public IWebDriver Driver { get; }
         public TextBoxPage TextBoxPage { get; }
-
+        public CheckBox CheckBox { get; }
     }
 }

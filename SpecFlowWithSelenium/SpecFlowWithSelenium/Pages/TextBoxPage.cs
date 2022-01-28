@@ -8,8 +8,6 @@ namespace SpecFlowWithSelenium.Pages
 {
     public class TextBoxPage : BasePage
     {
-
-
         public TextBoxPage(IWebDriver driver) : base(driver) { }
 
 
@@ -32,7 +30,9 @@ namespace SpecFlowWithSelenium.Pages
 
         public void NavigateToUrl(string url)
         {
-            Navigate(ProjectSettings.ElementsUrl);
+            Navigate(url);
         }
+
+        
     }
 }

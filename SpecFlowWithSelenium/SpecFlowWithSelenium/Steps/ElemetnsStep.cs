@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using SpecFlowWithSelenium.Support;
 using TechTalk.SpecFlow;
@@ -23,12 +24,18 @@ namespace SpecFlowWithSelenium.Steps
 
         }
 
-
-        [When(@"I am click to out panel")]
-        public void WhenIAmClickToOutPanel()
+        [When(@"I go to the panel I need '(.*)'")]
+        public void WhenIGoToThePanelINeed(string id)
         {
-            _pageFactory.TextBoxPage.ElementPanel.Click();
+            _pageFactory.Driver.FindElement(By.Id(id)).Click();
         }
+
+        [When(@"Use button chebox")]
+        public void WhenUseButtonChebox()
+        {
+            _pageFactory.CheckBox.SelectAllFileElement.Click();
+        }
+
 
         [When(@"Fill the form and submit date")]
         public void WhenFillTheFormAndSubmitDate()
@@ -40,18 +47,29 @@ namespace SpecFlowWithSelenium.Steps
             _pageFactory.TextBoxPage.SubmitButton.Click();
         }
 
-        [Then(@"I see our date")]
-        public void ThenISeeOurDate()
+        [When(@"I see our date")]
+        public void WhenISeeOurDate()
         {
             Assert.IsTrue(_pageFactory.TextBoxPage.NameCheck.Displayed);
             Assert.IsTrue(_pageFactory.TextBoxPage.EmailCheck.Displayed);
             Assert.IsTrue(_pageFactory.TextBoxPage.CurrentAddressCheck.Displayed);
             Assert.IsTrue(_pageFactory.TextBoxPage.PermanentAddressCheck.Displayed);
+        }
+
+        [When(@"I see text in window")]
+        public void WhenISeeTextInWindow()
+        {
+            Assert.IsTrue(_pageFactory.CheckBox.SpanTextElement.Displayed);
+        }
+
+
+        [Then(@"We closed browser")]
+        public void ThenWeClosedBrowser()
+        {
             _pageFactory.Driver.Dispose();
         }
 
 
 
-       
     }
 }
