@@ -1,8 +1,10 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using SpecFlowWithSelenium.Pages;
 using SpecFlowWithSelenium.Support;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace SpecFlowWithSelenium.Steps
 {
@@ -37,15 +39,27 @@ namespace SpecFlowWithSelenium.Steps
         }
 
 
-        [When(@"Fill the form and submit date")]
-        public void WhenFillTheFormAndSubmitDate()
+        //[When(@"Fill the form and submit date")]
+        //public void WhenFillTheFormAndSubmitDate()
+        //{
+        //    _pageFactory.TextBoxPage.UserNameInputField.SendKeys("Ivan");
+        //    _pageFactory.TextBoxPage.EmailInputField.SendKeys("email@email.com");
+        //    _pageFactory.TextBoxPage.CurrentAddressInputField.SendKeys("current address");
+        //    _pageFactory.TextBoxPage.PermanentAddressinputField.SendKeys("penmanent address");
+        //    _pageFactory.TextBoxPage.SubmitButton.Click();
+        //}
+
+        [When(@"Fill the form and submit date next data")]
+        public void WhenFillTheFormAndSubmitDateNextData(Table table)
         {
-            _pageFactory.TextBoxPage.UserNameInputField.SendKeys("Ivan");
-            _pageFactory.TextBoxPage.EmailInputField.SendKeys("email@email.com");
-            _pageFactory.TextBoxPage.CurrentAddressInputField.SendKeys("current address");
-            _pageFactory.TextBoxPage.PermanentAddressinputField.SendKeys("penmanent address");
+            _pageFactory.TextBoxPage.UserNameInputField.SendKeys(table.Rows[0].Value());
+            _pageFactory.TextBoxPage.EmailInputField.SendKeys(table.Rows[0].Value());
+            _pageFactory.TextBoxPage.CurrentAddressInputField.SendKeys(table.Rows[0].Value());
+            _pageFactory.TextBoxPage.PermanentAddressinputField.SendKeys(table.Rows[0].Value());
+
             _pageFactory.TextBoxPage.SubmitButton.Click();
         }
+        
 
         [When(@"I see our date")]
         public void WhenISeeOurDate()

@@ -108,13 +108,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.When("I go to the panel I need \'item-0\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Full Name",
+                            "Email",
+                            "Current Address",
+                            "Permanent Address"});
+                table1.AddRow(new string[] {
+                            "Ivan",
+                            "email@gmail.com",
+                            "current address",
+                            "permanent adress"});
 #line 9
- testRunner.And("Fill the form and submit date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Fill the form and submit date next data", ((string)(null)), table1, "And ");
 #line hidden
-#line 10
+#line 12
  testRunner.And("I see our date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 11
+#line 13
  testRunner.Then("We closed browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -130,7 +140,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "CheckBox"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CheckBox", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 14
+#line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -150,19 +160,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 15
+#line 17
  testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 16
+#line 18
  testRunner.When("I go to the panel I need \'item-1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 17
+#line 19
  testRunner.And("Use button chebox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 18
+#line 20
  testRunner.And("I see text in window", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 19
+#line 21
  testRunner.Then("We closed browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

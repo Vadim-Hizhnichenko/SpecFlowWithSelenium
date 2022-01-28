@@ -6,7 +6,9 @@
 Scenario: TexBox
 	Given I am navigate to website
 	When I go to the panel I need 'item-0'
-	And Fill the form and submit date
+	And Fill the form and submit date next data 
+	| Full Name | Email           | Current Address | Permanent Address |
+	| Ivan      | email@gmail.com | current address | permanent adress  |
 	And I see our date
 	Then We closed browser
 
