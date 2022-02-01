@@ -1,12 +1,15 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SpecFlowWithSelenium.Models;
 using SpecFlowWithSelenium.Pages;
 using SpecFlowWithSelenium.Support;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -110,8 +113,15 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"We see selected text '(.*)'")]
         public void WhenWeSeeSelectedText(string buttonText)
         {
-            Assert.AreEqual(buttonText, _pageFactory.RadioButtonPage.YesRadioButton.Text);
+            
         }
+
+        [When(@"We see selected this text '(.*)'")]
+        public void WhenWeSeeSelectedThisText(string buttonText)
+        {
+            Assert.AreEqual(buttonText, _pageFactory.RadioButtonPage.ImpressiveRadioButton.Text);
+        }
+
 
         [When(@"I click three buttons")]
         public void WhenIClickThreeButtons()
@@ -120,17 +130,64 @@ namespace SpecFlowWithSelenium.Steps
             _pageFactory.ButtonsPage.ClickMeButton.Click();
             act.ContextClick(_pageFactory.ButtonsPage.RightClickMeButton).Perform();
             act.DoubleClick(_pageFactory.ButtonsPage.DoubleClickMeButton).Perform();
-            
-            
+
         }
 
         [When(@"I click to link")]
         public void WhenIClickToLink()
         {
             _pageFactory.LinksPage.HomeLink.Click();
-            _pageFactory.LinksPage.HomeDynamicLink.Click();
-            
-            
+                      
+        }
+
+        #region Click Link Test Methods
+
+        [When(@"I click Created link")]
+        public void WhenIClickCreatedLink()
+        {
+            _pageFactory.LinksPage.CreatedLink.Click();
+        }
+
+        [When(@"I click No Content link")]
+        public void WhenIClickNoContentLink()
+        {
+            _pageFactory.LinksPage.NoContentLink.Click();
+        }
+
+        [When(@"I click Moved link")]
+        public void WhenIClickMovedLink()
+        {
+            _pageFactory.LinksPage.MovedLink.Click();
+        }
+
+        [When(@"I click Bad Request link")]
+        public void WhenIClickBadRequestLink()
+        {
+            _pageFactory.LinksPage.BadRequestLink.Click();
+        }
+
+        [When(@"I click Unauthorized link")]
+        public void WhenIClickUnauthorizedLink()
+        {
+            _pageFactory.LinksPage.UnauthorizedLink.Click();
+        }
+
+        [When(@"I click Forbidden link")]
+        public void WhenIClickForbiddenLink()
+        {
+            _pageFactory.LinksPage.ForbiddenLink.Click();
+        }
+
+        [When(@"I click NotFound link")]
+        public void WhenIClickNotFoundLink()
+        {
+            _pageFactory.LinksPage.NotFountLink.Click();
+        }
+
+        [When(@"See result text on disply")]
+        public void WhenSeeResultTextOnDisply()
+        {
+            Assert.IsTrue(_pageFactory.LinksPage.LinkResponse.Displayed);
         }
 
         [When(@"New tab with site opened")]
@@ -138,10 +195,60 @@ namespace SpecFlowWithSelenium.Steps
         {
             _pageFactory.Driver.SwitchTo().Window(_pageFactory.Driver.WindowHandles.Last());
             Assert.AreEqual("ToolsQA", _pageFactory.LinksPage.Title);
-            _pageFactory.Driver.SwitchTo().Window(_pageFactory.Driver.WindowHandles[1]);
+
+        }
+
+        [When(@"I click to dynamic link")]
+        public void WhenIClickToDynamicLink()
+        {
+            _pageFactory.LinksPage.HomeDynamicLink.Click();
+        }
+
+        #endregion
+
+
+        #region Broken Link Test Methods
+
+        [When(@"I click valid link")]
+        public void WhenIClickValidLink()
+        {
+            _pageFactory.BrokenLinkPage.ValidLink.Click();
+        }
+
+        [When(@"I click invalid link")]
+        public void WhenIClickInvalidLink()
+        {
+            _pageFactory.BrokenLinkPage.BrokenLink.Click();
+        }
+
+        [When(@"I redirected to home page")]
+        public void WhenIRedirectedToHomePage()
+        {
             Assert.AreEqual("ToolsQA", _pageFactory.LinksPage.Title);
         }
 
+        [When(@"I was redirected to error page")]
+        public void WhenIWasRedirectedToErrorPage()
+        {
+            Assert.IsTrue(_pageFactory.BrokenLinkPage.AnwerBrokenLink.Displayed);
+        }
+
+        #endregion
+
+        #region Upload And Download file test Methods
+        [When(@"Click button download file")]
+        public void WhenClickButtonDownloadFile()
+        {
+            _pageFactory.UploadAndDownloadPage.DownloadButton.Click();
+        }
+
+        [When(@"I have this file")]
+        public void WhenIHaveThisFile()
+        {
+            Assert.IsTrue(_pageFactory.UploadAndDownloadPage.CheckFileDownloaded("sampleFile"));
+        }
+
+        #endregion
 
         [When(@"I see three message")]
         public void WhenISeeThreeMessage()

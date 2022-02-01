@@ -29,9 +29,10 @@ namespace SpecFlowWithSelenium.Pages
 
         public IWebElement NotFountLink => Driver.FindElement(By.Id("invalid-url"));
 
+        public IWebElement LinkResponse => Driver.FindElement(By.Id("linkResponse"));
         #endregion
 
-        #region Message Links
+        #region Message 
 
 
 

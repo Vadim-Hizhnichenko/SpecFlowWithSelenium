@@ -18,6 +18,8 @@ namespace SpecFlowWithSelenium.Support
             WebTablesPage = new WebTablesPage(Driver);
             ButtonsPage = new ButtonsPage(Driver);
             LinksPage = new LinksPage(Driver);
+            BrokenLinkPage = new BrokenLinkPage(Driver);
+            UploadAndDownloadPage = new UploadAndDownloadPage(Driver);
         }
 
         public IWebDriver Driver { get; }
@@ -27,5 +29,7 @@ namespace SpecFlowWithSelenium.Support
         public WebTablesPage WebTablesPage { get; }
         public ButtonsPage ButtonsPage { get; }
         public LinksPage LinksPage { get; }
+        public BrokenLinkPage BrokenLinkPage { get; }
+        public UploadAndDownloadPage UploadAndDownloadPage { get; }
     }
 }
