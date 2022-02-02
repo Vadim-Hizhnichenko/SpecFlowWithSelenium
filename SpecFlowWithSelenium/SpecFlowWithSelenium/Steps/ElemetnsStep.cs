@@ -1,15 +1,10 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.PageObjects;
 using SpecFlowWithSelenium.Models;
-using SpecFlowWithSelenium.Pages;
 using SpecFlowWithSelenium.Support;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -27,17 +22,16 @@ namespace SpecFlowWithSelenium.Steps
             _pageFactory = pageFactory;
         }
 
-        [Given(@"I am navigate to website")]
-        public void GivenIAmNavigateToWebsite()
+        [Given(@"I have base url site")]
+        public void GivenIHaveBaseUrlSite()
         {
-            _pageFactory.TextBoxPage.NavigateToUrl(ProjectSettings.ElementsUrl);
-
+            _pageFactory.TextBoxPage.NavigateToUrl(ProjectSettings.BaseUrl);
         }
 
-        [When(@"I go to the panel I need '(.*)'")]
-        public void WhenIGoToThePanelINeed(string id)
+        [When(@"I go to url '(.*)'")]
+        public void WhenIGoToUrl(string endPoint)
         {
-            _pageFactory.Driver.FindElement(By.Id(id)).Click();
+            _pageFactory.TextBoxPage.NavigateToUrl(ProjectSettings.BaseUrl + endPoint);
         }
 
         [When(@"Use button chebox")]
@@ -109,12 +103,6 @@ namespace SpecFlowWithSelenium.Steps
             _pageFactory.RadioButtonPage.YesRadioButton.Click();
         }
 
-
-        [When(@"We see selected text '(.*)'")]
-        public void WhenWeSeeSelectedText(string buttonText)
-        {
-            
-        }
 
         [When(@"We see selected this text '(.*)'")]
         public void WhenWeSeeSelectedThisText(string buttonText)
@@ -206,7 +194,6 @@ namespace SpecFlowWithSelenium.Steps
 
         #endregion
 
-
         #region Broken Link Test Methods
 
         [When(@"I click valid link")]
@@ -235,20 +222,44 @@ namespace SpecFlowWithSelenium.Steps
 
         #endregion
 
-        #region Upload And Download file test Methods
+        #region Upload And Download file Test Methods
         [When(@"Click button download file")]
         public void WhenClickButtonDownloadFile()
         {
             _pageFactory.UploadAndDownloadPage.DownloadButton.Click();
         }
 
-        [When(@"I have this file")]
-        public void WhenIHaveThisFile()
+        [When(@"I see this file to the download folder")]
+        public void WhenISeeThisFileToTheDownloadFolder()
         {
-            Assert.IsTrue(_pageFactory.UploadAndDownloadPage.CheckFileDownloaded("sampleFile"));
+            string fileName = "sampleFile.jpeg";
+            Assert.IsTrue(_pageFactory.UploadAndDownloadPage.CheckFile(fileName));
+        }
+
+        [When(@"I click upload button and select file to upload '(.*)'")]
+        public void WhenIClickUploadButtonAndSelectFileToUpload(string pathFile)
+        {
+            _pageFactory.UploadAndDownloadPage.UploadButton.SendKeys(pathFile);
+        }
+
+
+        [When(@"The path of the loaded file is visible")]
+        public void WhenThePathOfTheLoadedFileIsVisible()
+        {
+            Assert.IsTrue(_pageFactory.UploadAndDownloadPage.UploadFilePath.Displayed);
         }
 
         #endregion
+
+        [When(@"The buttons become enable and visible")]
+        public void WhenTheButtonsBecomeEnableAndVisible()
+        {
+            Assert.IsTrue(_pageFactory.DynamicPropertiesPage.EnableButton.Displayed);
+            Assert.IsTrue(_pageFactory.DynamicPropertiesPage.ChangeColorButton.Displayed);
+            Assert.IsTrue(_pageFactory.DynamicPropertiesPage.VisibleButton.Displayed);
+
+        }
+
 
         [When(@"I see three message")]
         public void WhenISeeThreeMessage()

@@ -4,8 +4,8 @@
 
 @TextBox
 Scenario: TexBox
-	Given I am navigate to website
-	When I go to the panel I need 'item-0'
+	Given I have base url site
+	When I go to url 'text-box'
 	And Fill the form and submit date next data 
 	| Full Name | Email           | Current Address | Permanent Address |
 	| Ivan      | email@gmail.com | current address | permanent adress  |
@@ -15,8 +15,8 @@ Scenario: TexBox
 
 @CheckBox
 Scenario: CheckBox
-	Given I am navigate to website 
-	When I go to the panel I need 'item-1'
+	Given I have base url site 
+	When I go to url 'checkbox'
 	And Use button chebox
 	# Data has be displeyed
 	And I see text in window
@@ -24,8 +24,8 @@ Scenario: CheckBox
 
 @RadioButton
 Scenario: RadioButtonYes
-	Given I am navigate to website
-	When I go to the panel I need 'item-2'
+	Given I have base url site
+	When I go to url 'radio-button'
 	And use radio button Yes
 	And We see selected text 'Yes'
 	Then We closed browser
@@ -33,8 +33,8 @@ Scenario: RadioButtonYes
 
 @RadioButton
 Scenario: RadioButtonImpressive
-	Given I am navigate to website
-	When I go to the panel I need 'item-2'
+	Given I have base url site
+	When I go to url 'radio-button'
 	And use radio button Impressive
 	And We see selected this text 'Impressive'
 	Then We closed browser
@@ -42,8 +42,8 @@ Scenario: RadioButtonImpressive
 
 @WebTablesAddNewUser
 Scenario: AddNewUser
-	Given I am navigate to website
-	When I go to the panel I need 'item-3'
+	Given I have base url site
+	When I go to url 'webtables'
 	And I click button Add
 	And I create new user
 	| FirstName | LastName | Age | Email           | Salary | Departament |
@@ -53,56 +53,56 @@ Scenario: AddNewUser
 	
 @Buttons
 Scenario: Buttons
-	Given I am navigate to website
-	When I go to the panel I need 'item-4'
+	Given I have base url site
+	When I go to url 'buttons'
 	And I click three buttons
 	And I see three message
 	Then We closed browser
 
 @LinksNewTab
 Scenario: LinkWillOpenNewTab
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click to link
 	And New tab with site opened
 	Then We closed browser
 
 @DynamicLinkNewtab
 Scenario: DynamicLinkOpenNewTab
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click to dynamic link
 	And New tab with site opened
 	Then We closed browser
 
 @LinkCreated
 Scenario: LinkCreated
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click Created link
 	And See result text on disply
 	Then We closed browser
 
 @LinkNoContent
 Scenario: LinkNoContent
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click No Content link
 	And See result text on disply
 	Then We closed browser
 
 @LinkMoved
 Scenario: LinkMoved
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click Moved link
 	And See result text on disply
 	Then We closed browser
 
 @LinkBadRequest
 Scenario: LinkBadRequest
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click Bad Request link
 	And See result text on disply
 	Then We closed browser
@@ -110,48 +110,66 @@ Scenario: LinkBadRequest
 
 @LinkUnauthorized
 Scenario: LinkUnauthorized
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click Unauthorized link
 	And See result text on disply
 	Then We closed browser
 
 @LinkForbidden
 Scenario: LinkForbidden
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click Forbidden link
 	And See result text on disply
 	Then We closed browser
 
 @LinkNotFound
 Scenario: LinkNotFound
-	Given I am navigate to website
-	When I go to the panel I need 'item-5'
+	Given I have base url site
+	When I go to url 'links'
 	And I click NotFound link
 	And See result text on disply
 	Then We closed browser
 
 @BrokenLink
 Scenario: ValidLink
-	Given I am navigate to website
-	When I go to the panel I need 'item-6'
+	Given I have base url site
+	When I go to url 'broken'
 	And I click valid link 
 	And I redirected to home page
 	Then We closed browser
 
 @BrokenLink
 Scenario: BrokenLink
-	Given I am navigate to website
-	When I go to the panel I need 'item-6'
+	Given I have base url site
+	When I go to url 'broken'
 	And I click invalid link 
 	And I was redirected to error page
 	Then We closed browser
 
-@UploadAndDownload
+@DownloadFile
 Scenario: DowloadFile
-	Given I am navigate to website
-	When I go to the panel I need 'item-7'
+	Given I have base url site
+	When I go to url 'upload-download'
 	And Click button download file
-	And I have this file
-	#Then We closed browser
+	And I see this file to the download folder
+	Then We closed browser
+
+@UploadFile
+Scenario: UploadFile
+	Given I have base url site
+	When I go to url 'upload-download'
+	And I click upload button and select file to upload 'C:\Users\khyzhnychenko\Desktop\test.txt'
+	And The path of the loaded file is visible 
+	Then We closed browser
+
+
+@DynamicProperty
+Scenario: DynamicProperty
+	Given I have base url site
+	When I go to url 'dynamic-properties'
+	And The buttons become enable and visible
+	Then We closed browser
+
+

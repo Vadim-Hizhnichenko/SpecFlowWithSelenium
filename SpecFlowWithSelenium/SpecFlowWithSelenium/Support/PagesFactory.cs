@@ -1,9 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SpecFlowWithSelenium.Drivers;
 using SpecFlowWithSelenium.Pages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SpecFlowWithSelenium.Support
 {
@@ -20,6 +17,7 @@ namespace SpecFlowWithSelenium.Support
             LinksPage = new LinksPage(Driver);
             BrokenLinkPage = new BrokenLinkPage(Driver);
             UploadAndDownloadPage = new UploadAndDownloadPage(Driver);
+            DynamicPropertiesPage = new DynamicPropertiesPage(Driver);
         }
 
         public IWebDriver Driver { get; }
@@ -31,5 +29,6 @@ namespace SpecFlowWithSelenium.Support
         public LinksPage LinksPage { get; }
         public BrokenLinkPage BrokenLinkPage { get; }
         public UploadAndDownloadPage UploadAndDownloadPage { get; }
+        public DynamicPropertiesPage DynamicPropertiesPage { get; }
     }
 }

@@ -103,10 +103,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.When("I go to the panel I need \'item-0\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'text-box\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Full Name",
@@ -161,10 +161,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 18
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 19
- testRunner.When("I go to the panel I need \'item-1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'checkbox\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
  testRunner.And("Use button chebox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -209,10 +209,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 27
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 28
- testRunner.When("I go to the panel I need \'item-2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'radio-button\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
  testRunner.And("use radio button Yes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -257,10 +257,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 36
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 37
- testRunner.When("I go to the panel I need \'item-2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'radio-button\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 38
  testRunner.And("use radio button Impressive", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -305,10 +305,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 45
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 46
- testRunner.When("I go to the panel I need \'item-3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'webtables\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 47
  testRunner.And("I click button Add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -370,10 +370,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 56
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 57
- testRunner.When("I go to the panel I need \'item-4\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'buttons\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 58
  testRunner.And("I click three buttons", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -418,10 +418,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 64
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 65
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 66
  testRunner.And("I click to link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -466,10 +466,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 72
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 73
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 74
  testRunner.And("I click to dynamic link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -514,10 +514,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 80
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 81
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 82
  testRunner.And("I click Created link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -562,10 +562,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 88
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 89
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 90
  testRunner.And("I click No Content link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -610,10 +610,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 96
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 97
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 98
  testRunner.And("I click Moved link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -658,10 +658,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 104
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 105
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 106
  testRunner.And("I click Bad Request link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -706,10 +706,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 113
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 114
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 115
  testRunner.And("I click Unauthorized link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -754,10 +754,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 121
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 122
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 123
  testRunner.And("I click Forbidden link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -802,10 +802,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 129
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 130
- testRunner.When("I go to the panel I need \'item-5\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'links\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 131
  testRunner.And("I click NotFound link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -850,10 +850,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 137
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 138
- testRunner.When("I go to the panel I need \'item-6\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'broken\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 139
  testRunner.And("I click valid link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -898,10 +898,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 145
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 146
- testRunner.When("I go to the panel I need \'item-6\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'broken\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 147
  testRunner.And("I click invalid link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -918,11 +918,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("DowloadFile")]
-        [NUnit.Framework.CategoryAttribute("UploadAndDownload")]
+        [NUnit.Framework.CategoryAttribute("DownloadFile")]
         public virtual void DowloadFile()
         {
             string[] tagsOfScenario = new string[] {
-                    "UploadAndDownload"};
+                    "DownloadFile"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("DowloadFile", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 152
@@ -946,16 +946,113 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 153
- testRunner.Given("I am navigate to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 154
- testRunner.When("I go to the panel I need \'item-7\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to url \'upload-download\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 155
  testRunner.And("Click button download file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 156
- testRunner.And("I have this file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see this file to the download folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 157
+ testRunner.Then("We closed browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("UploadFile")]
+        [NUnit.Framework.CategoryAttribute("UploadFile")]
+        public virtual void UploadFile()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "UploadFile"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UploadFile", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 160
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 161
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 162
+ testRunner.When("I go to url \'upload-download\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 163
+ testRunner.And("I click upload button and select file to upload \'C:\\Users\\khyzhnychenko\\Desktop\\t" +
+                        "est.txt\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 164
+ testRunner.And("The path of the loaded file is visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 165
+ testRunner.Then("We closed browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("DynamicProperty")]
+        [NUnit.Framework.CategoryAttribute("DynamicProperty")]
+        public virtual void DynamicProperty()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "DynamicProperty"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("DynamicProperty", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 169
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 170
+ testRunner.Given("I have base url site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 171
+ testRunner.When("I go to url \'dynamic-properties\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 172
+ testRunner.And("The buttons become enable and visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 173
+ testRunner.Then("We closed browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

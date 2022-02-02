@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SpecFlowWithSelenium.Models
+﻿namespace SpecFlowWithSelenium.Models
 {
     public class WebTablesUser
     {
