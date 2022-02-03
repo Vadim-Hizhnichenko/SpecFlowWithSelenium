@@ -15,9 +15,9 @@ namespace SpecFlowWithSelenium.Steps
     public sealed class ElemetnsStep
     {
 
-        private readonly PagesFactory _pageFactory;
+        private readonly ElementsPagesFactory _pageFactory;
 
-        public ElemetnsStep(PagesFactory pageFactory)
+        public ElemetnsStep(ElementsPagesFactory pageFactory)
         {
             _pageFactory = pageFactory;
         }
@@ -54,6 +54,8 @@ namespace SpecFlowWithSelenium.Steps
                 _pageFactory.TextBoxPage.PermanentAddressinputField.SendKeys(item.PermanentAddress);
 
             }
+
+
 
             _pageFactory.TextBoxPage.SubmitButton.Click();
         }

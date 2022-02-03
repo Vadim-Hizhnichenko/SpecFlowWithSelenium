@@ -1,4 +1,7 @@
 ﻿using OpenQA.Selenium;
+using SpecFlowWithSelenium.Models;
+using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace SpecFlowWithSelenium.Pages
 {
@@ -29,6 +32,20 @@ namespace SpecFlowWithSelenium.Pages
             Navigate(url);
         }
 
+        public void SendFullNameUser(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<TextBoxForm>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.FullName);
+            }
+         
+        }
+        
+        // to do  
+        // method for email
+        // method for address perm
+        // method for addr cur
         
     }
 }
