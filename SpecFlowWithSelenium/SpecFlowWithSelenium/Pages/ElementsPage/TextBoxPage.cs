@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SpecFlowWithSelenium.Models;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -32,7 +33,7 @@ namespace SpecFlowWithSelenium.Pages
             Navigate(url);
         }
 
-        public void SendFullNameUser(IWebElement element, Table table)
+        public void SendFullNameUser(IWebElement element, Table table) 
         {
             var form = table.CreateSet<TextBoxForm>();
             foreach (var item in form)
@@ -41,11 +42,34 @@ namespace SpecFlowWithSelenium.Pages
             }
          
         }
-        
-        // to do  
-        // method for email
-        // method for address perm
-        // method for addr cur
-        
+        public void SendEmail(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<TextBoxForm>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.Email);
+            }
+
+        }
+        public void SendCurrentAddress(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<TextBoxForm>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.CurrentAddress);
+            }
+
+        }
+        public void SendPermanentAddress(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<TextBoxForm>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.PermanentAddress);
+            }
+
+        }
+
+
     }
 }

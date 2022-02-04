@@ -1,4 +1,7 @@
 ﻿using OpenQA.Selenium;
+using SpecFlowWithSelenium.Models;
+using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace SpecFlowWithSelenium.Pages
 {
@@ -29,8 +32,6 @@ namespace SpecFlowWithSelenium.Pages
         public IWebElement SearchBox => Driver.FindElement(By.Id("searchBox"));
         public IWebElement SearchBoxButton => Driver.FindElement(By.Id("basic-addon2"));
 
-        //public IWebElement SortByAsc => Driver.FindElement(By.XPath("//*[@class='rt-th rt-resizable-header-sort-asc-cursor-pointer']"));
-        //public IWebElement SortByDesc => Driver.FindElement(By.XPath("//*[@class='rt-th rt-resizable-header-sort-desc-cursor-pointer']"));
 
         public bool CheckUserInTable(string name)
         {
@@ -47,5 +48,99 @@ namespace SpecFlowWithSelenium.Pages
             SearchBox.SendKeys(name);
             SearchBoxButton.Click();
         }
+
+        public void SendFirstName(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.FirstName);
+            }
+
+        }
+        public void SendLasttName(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.LastName);
+            }
+
+        }
+        public void SendDataOfBirth(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.DataOfBirth);
+            }
+
+        }
+        public void SendAge(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.Age);
+            }
+
+        }
+        public void SendCurrentAddress(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.CurrentAddress);
+            }
+
+        }
+        public void SendDepartament(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.Departament);
+            }
+
+        }
+        public void SendEmail(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.Email);
+            }
+
+        }
+        public void SendMobile(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.Mobile);
+            }
+
+        }
+        public void SendSalary(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.Salary);
+            }
+
+        }
+        public void SendSubjects(IWebElement element, Table table)
+        {
+            var form = table.CreateSet<WebTablesUser>();
+            foreach (var item in form)
+            {
+                element.SendKeys(item.Subjects);
+            }
+
+        }
+
+
+
     }
 }

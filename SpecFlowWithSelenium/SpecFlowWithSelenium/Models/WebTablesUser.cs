@@ -9,5 +9,10 @@
         public string Salary { get; set; }
         public string Departament { get; set; }
 
+
+        public string Mobile { get; set; }
+        public string Subjects { get; set; }
+        public string DataOfBirth { get; set; }
+        public string CurrentAddress { get; set; }
     }
 }

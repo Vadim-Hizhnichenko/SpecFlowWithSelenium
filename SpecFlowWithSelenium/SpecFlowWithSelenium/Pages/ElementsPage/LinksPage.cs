@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System.Linq;
 
 namespace SpecFlowWithSelenium.Pages
 {
@@ -35,5 +36,9 @@ namespace SpecFlowWithSelenium.Pages
 
         #endregion
 
+        public void SwitchWindow()
+        {
+            Driver.SwitchTo().Window(Driver.WindowHandles.Last());
+        }
     }
 }

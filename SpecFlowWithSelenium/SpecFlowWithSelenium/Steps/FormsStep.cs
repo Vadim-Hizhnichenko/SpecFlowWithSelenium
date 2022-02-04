@@ -22,8 +22,6 @@ namespace SpecFlowWithSelenium.Steps
         public void WhenSelectTateAndCity()
         {
 
-            //_pageFactory.Driver.FindElement(By.XPath("//*[@class=' css-1hwfws3']")).Click();
-
             var x = _pageFactory.Driver.FindElement(By.Id("react-select-3-input"));
             var action = new Actions(_pageFactory.Driver);
             x.SendKeys("NCR");

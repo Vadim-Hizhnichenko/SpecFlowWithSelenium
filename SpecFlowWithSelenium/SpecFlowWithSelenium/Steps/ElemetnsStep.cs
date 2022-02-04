@@ -44,22 +44,15 @@ namespace SpecFlowWithSelenium.Steps
         public void WhenFillTheFormAndSubmitDateNextData(Table table)
         {
 
-            var form = table.CreateSet<TextBoxForm>();
-
-            foreach (var item in form)
-            {
-                _pageFactory.TextBoxPage.UserNameInputField.SendKeys(item.FullName);
-                _pageFactory.TextBoxPage.EmailInputField.SendKeys(item.Email);
-                _pageFactory.TextBoxPage.CurrentAddressInputField.SendKeys(item.CurrentAddress);
-                _pageFactory.TextBoxPage.PermanentAddressinputField.SendKeys(item.PermanentAddress);
-
-            }
-
-
+            _pageFactory.TextBoxPage.SendFullNameUser(_pageFactory.TextBoxPage.UserNameInputField, table);
+            _pageFactory.TextBoxPage.SendEmail(_pageFactory.TextBoxPage.EmailInputField, table);
+            _pageFactory.TextBoxPage.SendCurrentAddress(_pageFactory.TextBoxPage.CurrentAddressInputField, table);
+            _pageFactory.TextBoxPage.SendPermanentAddress(_pageFactory.TextBoxPage.PermanentAddressinputField, table);
 
             _pageFactory.TextBoxPage.SubmitButton.Click();
         }
 
+        #region Web Tables Test Methods
         [When(@"I click button Add")]
         public void WhenIClickButtonAdd()
         {
@@ -70,18 +63,12 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"I create new user")]
         public void WhenICreateNewUser(Table table)
         {
-            var form = table.CreateSet<WebTablesUser>();
-
-            foreach (var item in form)
-            {
-                _pageFactory.WebTablesPage.FirstNameInputField.SendKeys(item.FirstName);
-                _pageFactory.WebTablesPage.LastNameInputField.SendKeys(item.LastName);
-                _pageFactory.WebTablesPage.AgeInputField.SendKeys(item.Age);
-                _pageFactory.WebTablesPage.EmailInputField.SendKeys(item.Email);
-                _pageFactory.WebTablesPage.SalaryInputField.SendKeys(item.Salary);
-                _pageFactory.WebTablesPage.DepartamentInputField.SendKeys(item.Departament);
-            }
-
+            _pageFactory.WebTablesPage.SendFirstName(_pageFactory.WebTablesPage.FirstNameInputField, table);
+            _pageFactory.WebTablesPage.SendLasttName(_pageFactory.WebTablesPage.LastNameInputField, table);
+            _pageFactory.WebTablesPage.SendAge(_pageFactory.WebTablesPage.AgeInputField, table);
+            _pageFactory.WebTablesPage.SendEmail(_pageFactory.WebTablesPage.EmailInputField, table);
+            _pageFactory.WebTablesPage.SendSalary(_pageFactory.WebTablesPage.SalaryInputField, table);
+            _pageFactory.WebTablesPage.SendDepartament(_pageFactory.WebTablesPage.DepartamentInputField, table);
             _pageFactory.WebTablesPage.SubmitButton.Click();
         }
 
@@ -90,9 +77,11 @@ namespace SpecFlowWithSelenium.Steps
         {
             _pageFactory.WebTablesPage.SearchUserInTable(name);
             Assert.IsTrue(_pageFactory.WebTablesPage.CheckUserInTable(name));
+
         }
+        #endregion
 
-
+        #region Radio Button test Methods
         [When(@"use radio button Impressive")]
         public void WhenUseRadioButtonImpressive()
         {
@@ -111,15 +100,15 @@ namespace SpecFlowWithSelenium.Steps
         {
             Assert.AreEqual(buttonText, _pageFactory.RadioButtonPage.ImpressiveRadioButton.Text);
         }
+        #endregion
 
 
         [When(@"I click three buttons")]
         public void WhenIClickThreeButtons()
         {
-            var act = new Actions(_pageFactory.Driver);
             _pageFactory.ButtonsPage.ClickMeButton.Click();
-            act.ContextClick(_pageFactory.ButtonsPage.RightClickMeButton).Perform();
-            act.DoubleClick(_pageFactory.ButtonsPage.DoubleClickMeButton).Perform();
+            _pageFactory.ButtonsPage.DoRightClick();
+            _pageFactory.ButtonsPage.DoDoubleClick();
 
         }
 
@@ -183,9 +172,8 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"New tab with site opened")]
         public void WhenNewTabWithSiteOpened()
         {
-            _pageFactory.Driver.SwitchTo().Window(_pageFactory.Driver.WindowHandles.Last());
+            _pageFactory.LinksPage.SwitchWindow();
             Assert.AreEqual("ToolsQA", _pageFactory.LinksPage.Title);
-
         }
 
         [When(@"I click to dynamic link")]
