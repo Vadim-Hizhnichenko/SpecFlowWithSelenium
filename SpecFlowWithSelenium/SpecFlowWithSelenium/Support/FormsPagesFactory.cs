@@ -5,15 +5,16 @@ using SpecFlowWithSelenium.Pages.FormsPage;
 
 namespace SpecFlowWithSelenium.Support
 {
-    public class FormsPagesFactory : BaseFactory
+    public class FormsPagesFactory 
     {
-        public FormsPagesFactory() 
+        public FormsPagesFactory()
         {
+
             PracticeFormPage = new PracticeFormPage(Driver);
         }
 
-        //public IWebDriver Driver { get; }
-       
+        public IWebDriver Driver { get; } 
+
         public PracticeFormPage PracticeFormPage { get; }
     }
 }

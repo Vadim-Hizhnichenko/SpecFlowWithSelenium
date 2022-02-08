@@ -2,7 +2,9 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
+using SpecFlowWithSelenium.Drivers;
 using SpecFlowWithSelenium.Models;
+using SpecFlowWithSelenium.Pages;
 using SpecFlowWithSelenium.Support;
 using System;
 using System.Linq;
@@ -15,68 +17,89 @@ namespace SpecFlowWithSelenium.Steps
     public sealed class ElemetnsStep
     {
 
-        private readonly ElementsPagesFactory _pageFactory;
+        //private readonly ElementsPagesFactory _pageFactory;
+        private readonly TextBoxPage _textBoxPage;
+        private readonly CheckBox _checkBox;
+        private readonly RadioButtonPage _radioButtonPage;
+        private readonly WebTablesPage _webTablesPage;
+        private readonly ButtonsPage _buttonsPage;
+        private readonly LinksPage _linksPage;
+        private readonly BrokenLinkPage _brokenLinkPage;
+        private readonly UploadAndDownloadPage _uploadAndDownloadPage;
+        private readonly DynamicPropertiesPage _dynamicPropertiesPage;
+        private readonly Driver _driver;
 
-        public ElemetnsStep(ElementsPagesFactory pageFactory)
+        public ElemetnsStep(Driver driver)
         {
-            _pageFactory = pageFactory;
+            _driver = driver;
+            _textBoxPage = new TextBoxPage(driver.Current);
+            _checkBox = new CheckBox(driver.Current);
+            _radioButtonPage = new RadioButtonPage(driver.Current);
+            _buttonsPage = new ButtonsPage(driver.Current);
+            _webTablesPage = new WebTablesPage(driver.Current);
+            _linksPage = new LinksPage(driver.Current);
+            _brokenLinkPage = new BrokenLinkPage(driver.Current);
+            _uploadAndDownloadPage = new UploadAndDownloadPage(driver.Current);
+            _dynamicPropertiesPage = new DynamicPropertiesPage(driver.Current);
         }
+
+        
 
         [Given(@"I have base url site")]
         public void GivenIHaveBaseUrlSite()
         {
-            _pageFactory.TextBoxPage.NavigateToUrl(ProjectSettings.BaseUrl);
+            _textBoxPage.NavigateToUrl(ProjectSettings.BaseUrl);
         }
 
         [When(@"I go to url '(.*)'")]
         public void WhenIGoToUrl(string endPoint)
         {
-            _pageFactory.TextBoxPage.NavigateToUrl(ProjectSettings.BaseUrl + endPoint);
+            _textBoxPage.NavigateToUrl(ProjectSettings.BaseUrl + endPoint);
         }
 
         [When(@"Use button chebox")]
         public void WhenUseButtonChebox()
         {
-            _pageFactory.CheckBox.SelectAllFileElement.Click();
+            _checkBox.SelectAllFileElement.Click();
         }
 
         [When(@"Fill the form and submit date next data")]
         public void WhenFillTheFormAndSubmitDateNextData(Table table)
         {
 
-            _pageFactory.TextBoxPage.SendFullNameUser(_pageFactory.TextBoxPage.UserNameInputField, table);
-            _pageFactory.TextBoxPage.SendEmail(_pageFactory.TextBoxPage.EmailInputField, table);
-            _pageFactory.TextBoxPage.SendCurrentAddress(_pageFactory.TextBoxPage.CurrentAddressInputField, table);
-            _pageFactory.TextBoxPage.SendPermanentAddress(_pageFactory.TextBoxPage.PermanentAddressinputField, table);
+            _textBoxPage.SendFullNameUser(_textBoxPage.UserNameInputField, table);
+            _textBoxPage.SendEmail(_textBoxPage.EmailInputField, table);
+            _textBoxPage.SendCurrentAddress(_textBoxPage.CurrentAddressInputField, table);
+            _textBoxPage.SendPermanentAddress(_textBoxPage.PermanentAddressinputField, table);
 
-            _pageFactory.TextBoxPage.SubmitButton.Click();
+            _textBoxPage.SubmitButton.Click();
         }
 
         #region Web Tables Test Methods
         [When(@"I click button Add")]
         public void WhenIClickButtonAdd()
         {
-            _pageFactory.WebTablesPage.AddNewUserButton.Click();
+            _webTablesPage.AddNewUserButton.Click();
         }
 
 
         [When(@"I create new user")]
         public void WhenICreateNewUser(Table table)
         {
-            _pageFactory.WebTablesPage.SendFirstName(_pageFactory.WebTablesPage.FirstNameInputField, table);
-            _pageFactory.WebTablesPage.SendLasttName(_pageFactory.WebTablesPage.LastNameInputField, table);
-            _pageFactory.WebTablesPage.SendAge(_pageFactory.WebTablesPage.AgeInputField, table);
-            _pageFactory.WebTablesPage.SendEmail(_pageFactory.WebTablesPage.EmailInputField, table);
-            _pageFactory.WebTablesPage.SendSalary(_pageFactory.WebTablesPage.SalaryInputField, table);
-            _pageFactory.WebTablesPage.SendDepartament(_pageFactory.WebTablesPage.DepartamentInputField, table);
-            _pageFactory.WebTablesPage.SubmitButton.Click();
+            _webTablesPage.SendFirstName(_webTablesPage.FirstNameInputField, table);
+            _webTablesPage.SendLasttName(_webTablesPage.LastNameInputField, table);
+            _webTablesPage.SendAge(_webTablesPage.AgeInputField, table);
+            _webTablesPage.SendEmail(_webTablesPage.EmailInputField, table);
+            _webTablesPage.SendSalary(_webTablesPage.SalaryInputField, table);
+            _webTablesPage.SendDepartament(_webTablesPage.DepartamentInputField, table);
+            _webTablesPage.SubmitButton.Click();
         }
 
         [When(@"Search created user with name '(.*)'")]
         public void WhenSearchCreatedUserWithName(string name)
         {
-            _pageFactory.WebTablesPage.SearchUserInTable(name);
-            Assert.IsTrue(_pageFactory.WebTablesPage.CheckUserInTable(name));
+            _webTablesPage.SearchUserInTable(name);
+            Assert.IsTrue(_webTablesPage.CheckUserInTable(name));
 
         }
         #endregion
@@ -85,38 +108,47 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"use radio button Impressive")]
         public void WhenUseRadioButtonImpressive()
         {
-            _pageFactory.RadioButtonPage.ImpressiveRadioButton.Click();
+            _radioButtonPage.ImpressiveRadioButton.Click();
         }
 
         [When(@"use radio button Yes")]
         public void WhenUseRadioButtonYes()
         {
-            _pageFactory.RadioButtonPage.YesRadioButton.Click();
+            _radioButtonPage.YesRadioButton.Click();
         }
 
 
         [When(@"We see selected this text '(.*)'")]
         public void WhenWeSeeSelectedThisText(string buttonText)
         {
-            Assert.AreEqual(buttonText, _pageFactory.RadioButtonPage.ImpressiveRadioButton.Text);
+            Assert.AreEqual(buttonText, _radioButtonPage.ImpressiveRadioButton.Text);
         }
+
+        [When(@"We see selected text '(.*)'")]
+        public void WhenWeSeeSelectedText(string buttonText)
+        {
+            Assert.AreEqual(buttonText, _radioButtonPage.YesRadioButton.Text);
+        }
+
+
+
         #endregion
 
 
         [When(@"I click three buttons")]
         public void WhenIClickThreeButtons()
         {
-            _pageFactory.ButtonsPage.ClickMeButton.Click();
-            _pageFactory.ButtonsPage.DoRightClick();
-            _pageFactory.ButtonsPage.DoDoubleClick();
+            _buttonsPage.ClickMeButton.Click();
+            _buttonsPage.DoRightClick();
+            _buttonsPage.DoDoubleClick();
 
         }
 
         [When(@"I click to link")]
         public void WhenIClickToLink()
         {
-            _pageFactory.LinksPage.HomeLink.Click();
-                      
+            _linksPage.HomeLink.Click();
+
         }
 
         #region Click Link Test Methods
@@ -124,62 +156,62 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"I click Created link")]
         public void WhenIClickCreatedLink()
         {
-            _pageFactory.LinksPage.CreatedLink.Click();
+            _linksPage.CreatedLink.Click();
         }
 
         [When(@"I click No Content link")]
         public void WhenIClickNoContentLink()
         {
-            _pageFactory.LinksPage.NoContentLink.Click();
+            _linksPage.NoContentLink.Click();
         }
 
         [When(@"I click Moved link")]
         public void WhenIClickMovedLink()
         {
-            _pageFactory.LinksPage.MovedLink.Click();
+            _linksPage.MovedLink.Click();
         }
 
         [When(@"I click Bad Request link")]
         public void WhenIClickBadRequestLink()
         {
-            _pageFactory.LinksPage.BadRequestLink.Click();
+            _linksPage.BadRequestLink.Click();
         }
 
         [When(@"I click Unauthorized link")]
         public void WhenIClickUnauthorizedLink()
         {
-            _pageFactory.LinksPage.UnauthorizedLink.Click();
+            _linksPage.UnauthorizedLink.Click();
         }
 
         [When(@"I click Forbidden link")]
         public void WhenIClickForbiddenLink()
         {
-            _pageFactory.LinksPage.ForbiddenLink.Click();
+            _linksPage.ForbiddenLink.Click();
         }
 
         [When(@"I click NotFound link")]
         public void WhenIClickNotFoundLink()
         {
-            _pageFactory.LinksPage.NotFountLink.Click();
+            _linksPage.NotFountLink.Click();
         }
 
         [When(@"See result text on disply")]
         public void WhenSeeResultTextOnDisply()
         {
-            Assert.IsTrue(_pageFactory.LinksPage.LinkResponse.Displayed);
+            Assert.IsTrue(_linksPage.LinkResponse.Displayed);
         }
 
         [When(@"New tab with site opened")]
         public void WhenNewTabWithSiteOpened()
         {
-            _pageFactory.LinksPage.SwitchWindow();
-            Assert.AreEqual("ToolsQA", _pageFactory.LinksPage.Title);
+            _linksPage.SwitchWindow();
+            Assert.AreEqual("ToolsQA", _linksPage.Title);
         }
 
         [When(@"I click to dynamic link")]
         public void WhenIClickToDynamicLink()
         {
-            _pageFactory.LinksPage.HomeDynamicLink.Click();
+            _linksPage.HomeDynamicLink.Click();
         }
 
         #endregion
@@ -189,25 +221,25 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"I click valid link")]
         public void WhenIClickValidLink()
         {
-            _pageFactory.BrokenLinkPage.ValidLink.Click();
+            _brokenLinkPage.ValidLink.Click();
         }
 
         [When(@"I click invalid link")]
         public void WhenIClickInvalidLink()
         {
-            _pageFactory.BrokenLinkPage.BrokenLink.Click();
+            _brokenLinkPage.BrokenLink.Click();
         }
 
         [When(@"I redirected to home page")]
         public void WhenIRedirectedToHomePage()
         {
-            Assert.AreEqual("ToolsQA", _pageFactory.LinksPage.Title);
+            Assert.AreEqual("ToolsQA", _linksPage.Title);
         }
 
         [When(@"I was redirected to error page")]
         public void WhenIWasRedirectedToErrorPage()
         {
-            Assert.IsTrue(_pageFactory.BrokenLinkPage.AnwerBrokenLink.Displayed);
+            Assert.IsTrue(_brokenLinkPage.AnwerBrokenLink.Displayed);
         }
 
         #endregion
@@ -216,27 +248,27 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"Click button download file")]
         public void WhenClickButtonDownloadFile()
         {
-            _pageFactory.UploadAndDownloadPage.DownloadButton.Click();
+            _uploadAndDownloadPage.DownloadButton.Click();
         }
 
         [When(@"I see this file to the download folder")]
         public void WhenISeeThisFileToTheDownloadFolder()
         {
             string fileName = "sampleFile.jpeg";
-            Assert.IsTrue(_pageFactory.UploadAndDownloadPage.CheckFile(fileName));
+            Assert.IsTrue(_uploadAndDownloadPage.CheckFile(fileName));
         }
 
         [When(@"I click upload button and select file to upload '(.*)'")]
         public void WhenIClickUploadButtonAndSelectFileToUpload(string pathFile)
         {
-            _pageFactory.UploadAndDownloadPage.UploadButton.SendKeys(pathFile);
+            _uploadAndDownloadPage.UploadButton.SendKeys(pathFile);
         }
 
 
         [When(@"The path of the loaded file is visible")]
         public void WhenThePathOfTheLoadedFileIsVisible()
         {
-            Assert.IsTrue(_pageFactory.UploadAndDownloadPage.UploadFilePath.Displayed);
+            Assert.IsTrue(_uploadAndDownloadPage.UploadFilePath.Displayed);
         }
 
         #endregion
@@ -244,9 +276,9 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"The buttons become enable and visible")]
         public void WhenTheButtonsBecomeEnableAndVisible()
         {
-            Assert.IsTrue(_pageFactory.DynamicPropertiesPage.EnableButton.Displayed);
-            Assert.IsTrue(_pageFactory.DynamicPropertiesPage.ChangeColorButton.Displayed);
-            Assert.IsTrue(_pageFactory.DynamicPropertiesPage.VisibleButton.Displayed);
+            Assert.IsTrue(_dynamicPropertiesPage.EnableButton.Displayed);
+            Assert.IsTrue(_dynamicPropertiesPage.ChangeColorButton.Displayed);
+            Assert.IsTrue(_dynamicPropertiesPage.VisibleButton.Displayed);
 
         }
 
@@ -254,32 +286,32 @@ namespace SpecFlowWithSelenium.Steps
         [When(@"I see three message")]
         public void WhenISeeThreeMessage()
         {
-            Assert.IsTrue(_pageFactory.ButtonsPage.ClickMeMessage.Displayed);
-            Assert.IsTrue(_pageFactory.ButtonsPage.RightClickMeMessage.Displayed);
-            Assert.IsTrue(_pageFactory.ButtonsPage.DoubleClickMeMessage.Displayed);
+            Assert.IsTrue(_buttonsPage.ClickMeMessage.Displayed);
+            Assert.IsTrue(_buttonsPage.RightClickMeMessage.Displayed);
+            Assert.IsTrue(_buttonsPage.DoubleClickMeMessage.Displayed);
         }
 
 
         [When(@"I see our date")]
         public void WhenISeeOurDate()
         {
-            Assert.IsTrue(_pageFactory.TextBoxPage.NameCheck.Displayed);
-            Assert.IsTrue(_pageFactory.TextBoxPage.EmailCheck.Displayed);
-            Assert.IsTrue(_pageFactory.TextBoxPage.CurrentAddressCheck.Displayed);
-            Assert.IsTrue(_pageFactory.TextBoxPage.PermanentAddressCheck.Displayed);
+            Assert.IsTrue(_textBoxPage.NameCheck.Displayed);
+            Assert.IsTrue(_textBoxPage.EmailCheck.Displayed);
+            Assert.IsTrue(_textBoxPage.CurrentAddressCheck.Displayed);
+            Assert.IsTrue(_textBoxPage.PermanentAddressCheck.Displayed);
         }
 
         [When(@"I see text in window")]
         public void WhenISeeTextInWindow()
         {
-            Assert.IsTrue(_pageFactory.CheckBox.SpanTextElement.Displayed);
+            Assert.IsTrue(_checkBox.SpanTextElement.Displayed);
         }
 
 
         [Then(@"We closed browser")]
         public void ThenWeClosedBrowser()
         {
-            _pageFactory.Driver.Dispose();
+            _driver.Dispose();
         }
 
 

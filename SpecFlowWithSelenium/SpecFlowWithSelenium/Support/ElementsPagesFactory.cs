@@ -5,11 +5,12 @@ using SpecFlowWithSelenium.Pages.FormsPage;
 
 namespace SpecFlowWithSelenium.Support
 {
-    public class ElementsPagesFactory : BaseFactory
+    public class ElementsPagesFactory
     {
+
         public ElementsPagesFactory()
         {
-            //Driver = new Driver().Current;
+            Driver = new Driver().Current;
             TextBoxPage = new TextBoxPage(Driver);
             CheckBox = new CheckBox(Driver);
             RadioButtonPage = new RadioButtonPage(Driver);
@@ -22,8 +23,7 @@ namespace SpecFlowWithSelenium.Support
 
         }
 
-        //public IWebDriver Driver { get; }
-      
+        public IWebDriver Driver { get; }
         public TextBoxPage TextBoxPage { get; }
         public CheckBox CheckBox { get; }
         public RadioButtonPage RadioButtonPage { get; }

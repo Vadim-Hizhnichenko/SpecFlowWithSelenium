@@ -6,13 +6,20 @@ using System.Text;
 
 namespace SpecFlowWithSelenium.Support
 {
-    public  class BaseFactory
+    public class BaseFactory
     {
+
         public BaseFactory()
         {
-            Driver = new Driver().Current;
+            Driver = new Driver();
+            ElementsPagesFactory = new ElementsPagesFactory();
+            FormsPagesFactory = new FormsPagesFactory();
         }
 
-        public IWebDriver Driver { get; }
+        public Driver Driver { get; }
+
+        //public IWebDriver Driver { get; }
+        public ElementsPagesFactory ElementsPagesFactory { get; }
+        public FormsPagesFactory FormsPagesFactory { get; }
     }
 }
