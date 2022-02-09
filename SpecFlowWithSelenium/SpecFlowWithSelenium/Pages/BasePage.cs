@@ -13,6 +13,10 @@ namespace SpecFlowWithSelenium.Pages
             Driver.Navigate().GoToUrl(url);
         }
 
-       
+        public void ClickElement(IWebElement element)
+        {
+            element.Click();
+        }
+
     }
 }

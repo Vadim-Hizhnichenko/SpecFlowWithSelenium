@@ -28,9 +28,9 @@ namespace SpecFlowWithSelenium.Pages.FormsPage
         public IWebElement GenderOtherField => Driver.FindElement(By.XPath("//*[@for='gender-radio-3']"));
 
         // Check box 
-        public IWebElement HobbiesSportsField => Driver.FindElement(By.Id("hobbies-checkbox-1"));
-        public IWebElement HobbiesReadingField => Driver.FindElement(By.Id("hobbies-checkbox-2"));
-        public IWebElement HobbiesMusicField => Driver.FindElement(By.Id("hobbies-checkbox-3"));
+        public IWebElement HobbiesSportsField => Driver.FindElement(By.XPath("//*[@for='hobbies-checkbox-1']"));
+        public IWebElement HobbiesReadingField => Driver.FindElement(By.XPath("//*[@for='hobbies-checkbox-2']"));
+        public IWebElement HobbiesMusicField => Driver.FindElement(By.XPath("//*[@for='hobbies-checkbox-3']"));
 
         // Choise file button
         public IWebElement UploadFileButton => Driver.FindElement(By.Id("uploadPicture"));
@@ -40,11 +40,16 @@ namespace SpecFlowWithSelenium.Pages.FormsPage
         public IWebElement SelectCityField => Driver.FindElement(By.Id("react-select-4-input"));
 
         // submit 
-        public IWebElement SubmitButton => Driver.FindElement(By.Id("submit"));
+        public IWebElement SubmitButton => Driver.FindElement(By.XPath("//*[@id='submit']"));
 
         public IWebElement SubjectsField => Driver.FindElement(By.XPath("//*[@id='subjectsInput']"));
         public IWebElement StateValue => Driver.FindElement(By.XPath("//*[@class=' css-1uccc91-singleValue']"));
 
+
+        // Calendar Elements
+        public IWebElement CalendarField => Driver.FindElement(By.XPath("//*[@id='dateOfBirthInput']"));
+        public IWebElement CalendarMonthField => Driver.FindElement(By.XPath("//*[@class='react-datepicker__month-select']"));
+        public IWebElement CalendarYearField => Driver.FindElement(By.XPath("//*[@class='react-datepicker__year-select']"));
 
         //Modal UI Elements
         #region Modal Window Elements
@@ -82,22 +87,43 @@ namespace SpecFlowWithSelenium.Pages.FormsPage
 
         }
          
-        public void SelectGenderType(IWebElement element)
+        //public void SelectGenderType(IWebElement element)
+        //{
+        //    element.Click();
+        //}
+
+        public void GetDataBirth(string month, string year, string day)
         {
-            element.Click();
+            CalendarField.Click();
+            SelectElement listMonth = new SelectElement(CalendarMonthField);
+            listMonth.SelectByText(month);
+            SelectElement listYear = new SelectElement(CalendarYearField);
+            listYear.SelectByText(year);
+            Driver.FindElement(By.XPath($"//div[@class='react-datepicker__month']//*[contains(text(),'{day}')]")).Click();
+
         }
 
-        // TODO     
-        public void GetDataBirth()
+        //public void ClickElement(IWebElement element)
+        //{
+        //    element.Click();
+        //}
+
+        public IWebElement GetHobbie(string hobbie)
         {
-            var month = Driver.FindElement(By.XPath("//*[@class='react-datepicker__month-select']"));
-            SelectElement listMonth = new SelectElement(month);
-            listMonth.SelectByText("April");
+            return hobbie switch
+            {
+                "Sports" => HobbiesSportsField,
+                "Reading" => HobbiesReadingField,
+                "Musuc" => HobbiesMusicField,
+                _ => HobbiesMusicField,
+            };
+        }
 
-            var year = Driver.FindElement(By.XPath("//*[@class='react-datepicker__year-select']"));
-            SelectElement listYear = new SelectElement(year);
-            listYear.SelectByText("1994");
-
+        public void ClickSubmitButton()
+        {
+            Actions action = new Actions(Driver);
+            action.MoveToElement(SubmitButton).Perform();
+            action.SendKeys(Keys.Enter).Perform();
         }
        
     }
