@@ -1,9 +1,8 @@
-﻿using SpecFlowWithSelenium.Drivers;
+﻿using NUnit.Framework;
+using SpecFlowWithSelenium.Drivers;
+using SpecFlowWithSelenium.Pages;
 using SpecFlowWithSelenium.Pages.AlertsFrameWindowPage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowWithSelenium.Steps
@@ -25,6 +24,46 @@ namespace SpecFlowWithSelenium.Steps
         {
             _browserWindows.ClickElement(_browserWindows.NewTabButton);
         }
+
+
+        [When(@"Click button New Window")]
+        public void WhenClickButtonNewWindow()
+        {
+            _browserWindows.ClickElement(_browserWindows.NewWindowButton);
+        }
+
+        [When(@"We switched to new window")]
+        public void WhenWeSwitchedToNewWindow()
+        {
+            _browserWindows.SwitchToWindow();
+        }
+
+        [When(@"We see title a new window")]
+        public void WhenWeSeeTitleANewWindow()
+        {
+            Assert.IsTrue(_browserWindows.NewWindowTitle.Displayed);
+        }
+
+        [When(@"Click to New Window Message button")]
+        public void WhenClickToNewWindowMessageButton()
+        {
+            _browserWindows.ClickElement(_browserWindows.NewWindowMessageButton);
+
+        }
+
+        [When(@"See the text in message")]
+        public void WhenSeeTheTextInMessage()
+        {
+            
+            _driver.Current.SwitchTo().NewWindow(0);
+            var x = _browserWindows.NewWindowMessage.Text;
+        }
+
+
+
+
+
+
 
     }
 }

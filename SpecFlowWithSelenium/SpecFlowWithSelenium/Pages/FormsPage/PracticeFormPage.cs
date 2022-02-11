@@ -103,10 +103,6 @@ namespace SpecFlowWithSelenium.Pages.FormsPage
 
         }
 
-        //public void ClickElement(IWebElement element)
-        //{
-        //    element.Click();
-        //}
 
         public IWebElement GetHobbie(string hobbie)
         {

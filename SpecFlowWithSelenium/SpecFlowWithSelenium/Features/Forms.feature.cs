@@ -445,6 +445,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 68
  testRunner.And("Checking the entered data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 69
+ testRunner.Then("We closed browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

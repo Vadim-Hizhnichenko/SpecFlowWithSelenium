@@ -15,11 +15,13 @@ namespace SpecFlowWithSelenium.Pages.AlertsFrameWindowPage
         public IWebElement NewWindowButton => Driver.FindElement(By.XPath("//*[@id='windowButton']"));
         public IWebElement NewWindowMessageButton => Driver.FindElement(By.XPath("//*[@id='messageWindowButton']"));
 
-        public void SwitchWindow()
+
+        public IWebElement NewWindowTitle => Driver.FindElement(By.XPath("//*[@id='sampleHeading']"));
+        public IWebElement NewWindowMessage => Driver.FindElement(By.TagName("body"));
+        public void SwitchToWindow()
         {
             Driver.SwitchTo().Window(Driver.WindowHandles.Last());
         }
-
         
     }
 }
