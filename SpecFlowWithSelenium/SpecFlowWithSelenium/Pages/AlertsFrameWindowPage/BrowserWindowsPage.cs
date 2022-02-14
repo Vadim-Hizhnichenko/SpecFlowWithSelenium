@@ -6,9 +6,9 @@ using System.Text;
 
 namespace SpecFlowWithSelenium.Pages.AlertsFrameWindowPage
 {
-    public class BrowserWindows : BasePage
+    public class BrowserWindowsPage : BasePage
     {
-        public BrowserWindows(IWebDriver driver) : base(driver) { }
+        public BrowserWindowsPage(IWebDriver driver) : base(driver) { }
 
 
         public IWebElement NewTabButton => Driver.FindElement(By.XPath("//*[@id='tabButton']"));
