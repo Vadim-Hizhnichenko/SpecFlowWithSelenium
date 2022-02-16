@@ -1,6 +1,4 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using SpecFlowWithSelenium.Drivers;
 using SpecFlowWithSelenium.Pages;
 using SpecFlowWithSelenium.Pages.FormsPage;

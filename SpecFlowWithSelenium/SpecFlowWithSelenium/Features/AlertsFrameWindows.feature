@@ -60,3 +60,19 @@ Scenario: AlertPromtButton
 	And Click promt button with data 'My Name'
 	And See promt result 'You entered My Name'
 	Then We closed browser
+
+@ModalDialog
+Scenario: SmallModalDialog
+	Given I have base url site
+	When I go to url 'modal-dialogs'
+	And I click to small modal button
+	And See modal window text
+	Then We closed browser
+
+@ModalDialog
+Scenario: LargeModalDialog
+	Given I have base url site
+	When I go to url 'modal-dialogs'
+	And I click to large modal button
+	And See modal window large text 
+	Then We closed browser

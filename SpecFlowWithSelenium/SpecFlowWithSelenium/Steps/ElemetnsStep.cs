@@ -1,15 +1,7 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
 using SpecFlowWithSelenium.Drivers;
-using SpecFlowWithSelenium.Models;
 using SpecFlowWithSelenium.Pages;
-using SpecFlowWithSelenium.Support;
-using System;
-using System.Linq;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace SpecFlowWithSelenium.Steps
 {

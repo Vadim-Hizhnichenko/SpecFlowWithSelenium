@@ -1,11 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using SpecFlowWithSelenium.Models;
-using System.Linq;
-using System.Threading;
-using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace SpecFlowWithSelenium.Pages.FormsPage
 {

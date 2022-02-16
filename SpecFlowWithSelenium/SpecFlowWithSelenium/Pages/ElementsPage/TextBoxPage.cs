@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using SpecFlowWithSelenium.Models;
-using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

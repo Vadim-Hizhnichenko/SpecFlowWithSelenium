@@ -2,8 +2,6 @@
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SpecFlowWithSelenium.Pages.AlertsFrameWindowPage
 {

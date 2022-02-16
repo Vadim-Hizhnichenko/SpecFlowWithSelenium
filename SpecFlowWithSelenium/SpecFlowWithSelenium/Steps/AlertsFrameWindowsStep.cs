@@ -1,10 +1,6 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium.Support.UI;
 using SpecFlowWithSelenium.Drivers;
-using SpecFlowWithSelenium.Pages;
 using SpecFlowWithSelenium.Pages.AlertsFrameWindowPage;
-using System;
-using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowWithSelenium.Steps
@@ -14,12 +10,14 @@ namespace SpecFlowWithSelenium.Steps
     {
         private readonly BrowserWindowsPage _browserWindows;
         private readonly AlertsPage _alertsPage;
+        private readonly ModalDialogPage _modalDialogPage;
         private readonly Driver _driver;
 
         public AlertsFrameWindowsStep(Driver driver)
         {
             _driver = driver;
             _browserWindows = new BrowserWindowsPage(driver.Current);
+            _modalDialogPage = new ModalDialogPage(driver.Current);
             _alertsPage = new AlertsPage(driver.Current);
         }
 
@@ -61,10 +59,11 @@ namespace SpecFlowWithSelenium.Steps
         {
             
             _driver.Current.SwitchTo().NewWindow(0);
-            var x = _browserWindows.NewWindowMessage.Text;
+            //var x = _browserWindows.NewWindowMessage.Text;
         }
         #endregion
 
+        #region Alerts Method Test
         [When(@"Click Alert Button")]
         public void WhenClickAlertButton()
         {
@@ -100,8 +99,35 @@ namespace SpecFlowWithSelenium.Steps
         {
             Assert.IsTrue(_alertsPage.PromtAlertResult.Displayed);
         }
+        #endregion
+
+        #region Modal Dialog Method Test
+
+        [When(@"I click to small modal button")]
+        public void WhenIClickToSmallModalButton()
+        {
+            _modalDialogPage.ClickElement(_modalDialogPage.SmallModalButton);
+        }
+
+        [When(@"See modal window text")]
+        public void WhenSeeModalWindowText()
+        {
+            Assert.IsTrue(_modalDialogPage.SmallModalResult.Displayed);
+        }
+
+        [When(@"I click to large modal button")]
+        public void WhenIClickToLargeModalButton()
+        {
+            _modalDialogPage.ClickElement(_modalDialogPage.LargeModalButton);
+        }
+
+        [When(@"See modal window large text")]
+        public void WhenSeeModalWindowLargeText()
+        {
+            Assert.IsTrue(_modalDialogPage.LargeModalResult.Displayed);
+        }
 
 
-
+        #endregion
     }
 }
