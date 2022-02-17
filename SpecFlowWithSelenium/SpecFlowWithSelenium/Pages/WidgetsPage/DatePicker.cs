@@ -17,5 +17,10 @@ namespace SpecFlowWithSelenium.Pages.WidgetsPage
         {
             SelectDataInput.SendKeys(date);
         }
+
+        public void SelectDateAndTime(string dateAndTime)
+        {
+            SelectDateAndTimeInput.SendKeys(dateAndTime);
+        }
     }
 }

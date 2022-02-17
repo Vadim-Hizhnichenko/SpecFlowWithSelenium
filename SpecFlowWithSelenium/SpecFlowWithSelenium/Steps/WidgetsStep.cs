@@ -102,6 +102,18 @@ namespace SpecFlowWithSelenium.Steps
             Assert.IsTrue(_datePicker.SelectDataInput.Displayed);
         }
 
+        [When(@"Select date with time '(.*)'")]
+        public void WhenSelectDateWithTime(string dateAndTime)
+        {
+            _datePicker.SelectDateAndTime(dateAndTime);
+        }
+
+        [When(@"See this date with time")]
+        public void WhenSeeThisDateWithTime()
+        {
+            Assert.IsTrue(_datePicker.SelectDateAndTimeInput.Displayed);
+        }
+
 
         #endregion
     }

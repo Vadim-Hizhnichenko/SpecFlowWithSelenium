@@ -49,3 +49,10 @@ Scenario: SelectDate
 	And See this date 
 	Then We closed browser
 	
+@DatePicker
+Scenario: SelectDateAndTime
+	Given I have base url site
+	When I go to url 'date-picker'
+	And Select date with time 'June 17, 2021 4:03 PM'
+	And See this date with time 
+	Then We closed browser
