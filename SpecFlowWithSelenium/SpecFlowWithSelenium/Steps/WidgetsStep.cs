@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using SpecFlowWithSelenium.Drivers;
 using SpecFlowWithSelenium.Pages.WidgetsPage;
 using TechTalk.SpecFlow;
@@ -11,6 +13,7 @@ namespace SpecFlowWithSelenium.Steps
         private readonly AccordianPage _accordianPage;
         private readonly AutoCompletePage _autoCompletePage;
         private readonly DatePicker _datePicker;
+        private readonly SliderPage _sliderPage;
         private readonly Driver _driver;
 
         public WidgetsStep(Driver driver)
@@ -18,6 +21,7 @@ namespace SpecFlowWithSelenium.Steps
             _driver = driver;
             _accordianPage = new AccordianPage(driver.Current);
             _autoCompletePage = new AutoCompletePage(driver.Current);
+            _sliderPage = new SliderPage(driver.Current);
             _datePicker = new DatePicker(driver.Current);
         }
 
@@ -112,6 +116,25 @@ namespace SpecFlowWithSelenium.Steps
         public void WhenSeeThisDateWithTime()
         {
             Assert.IsTrue(_datePicker.SelectDateAndTimeInput.Displayed);
+        }
+
+
+        #endregion
+
+        #region Slider Methods Tets
+        //remake
+
+        [When(@"Click and hold slider")]
+        public void WhenClickAndHoldSlider()
+        {
+            _sliderPage.MoveSlider();
+        }
+        //remake
+
+        [When(@"See value in window")]
+        public void WhenSeeValueInWindow()
+        {
+            Assert.IsTrue(_sliderPage.SliderValue.Displayed);
         }
 
 

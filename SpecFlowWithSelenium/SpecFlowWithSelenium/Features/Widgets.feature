@@ -56,3 +56,10 @@ Scenario: SelectDateAndTime
 	And Select date with time 'June 17, 2021 4:03 PM'
 	And See this date with time 
 	Then We closed browser
+
+@Slider
+Scenario: SliderRun
+	Given I have base url site
+	When I go to url 'slider'
+	And Click and hold slider
+	And See value in window
